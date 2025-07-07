@@ -1,0 +1,73 @@
+/* ======================= */
+/* Theme: Default (Cam)    */
+/* ======================= */
+:root.theme-default {
+  --bg-color: #000;
+  --text-color: #fff;
+  --accent-color: #000000;
+  --sidebar-bg: #333;
+  --button-bg: #4CAF50;
+  --button-hover: #45a049;
+}
+
+/* ======================= */
+/* Theme: Dark (Tối)       */
+/* ======================= */
+:root.theme-dark {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --accent-color: #00bcd4;
+  --sidebar-bg: #1e1e1e;
+  --button-bg: #333;
+  --button-hover: #555;
+}
+
+/* ======================= */
+/* Theme: Light (Sáng)     */
+/* ======================= */
+:root.theme-light {
+  --bg-color: #f7f7f7;
+  --text-color: #222;
+  --accent-color: #3f51b5;
+  --sidebar-bg: #e0e0e0;
+  --button-bg: #ddd;
+  --button-hover: #ccc;
+}
+
+/* ======================= */
+/* Theme: Ocean (Biển)     */
+/* ======================= */
+:root.theme-ocean {
+  --bg-color: #001f3f;
+  --text-color: #cceeff;
+  --accent-color: #00aced;
+  --sidebar-bg: #003366;
+  --button-bg: #0074D9;
+  --button-hover: #005fa3;
+}
+
+/* ======================= */
+/* Theme: Sunset (Hoàng hôn) */
+/* ======================= */
+:root.theme-sunset {
+  --bg-color: #2c003e;
+  --text-color: #ffebf2;
+  --accent-color: #ff4081;
+  --sidebar-bg: #4b0059;
+  --button-bg: #e91e63;
+  --button-hover: #c2185b;
+}
+.background-container img {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+}
+.background-container video {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+}

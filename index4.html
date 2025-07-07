@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dịch Vụ Thuê Bot Discord</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      color: #333;
+    }
+    header {
+      background: #5865F2;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      color: #5865F2;
+    }
+    .service {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      border-radius: 8px;
+      background: white;
+      margin-bottom: 1.5rem;
+    }
+    .service h3 {
+      margin-top: 0;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background: #5865F2;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Thuê Bot Discord Tùy Chỉnh</h1>
+    <p>Chọn gói phù hợp & gửi yêu cầu để bắt đầu</p>
+  </header>
+
+  <section>
+    <h2>Các Gói Dịch Vụ</h2>
+    <div class="service">
+      <h3>🔹 Gói Cơ Bản – 50K</h3>
+      <p>Bot điều khiển cơ bản (chat, phản hồi lệnh)</p>
+    </div>
+
+    <div class="service">
+      <h3>🔸 Gói Nâng Cao – 150K</h3>
+      <p>Thêm Slash Command, tương tác nút, lưu dữ liệu</p>
+    </div>
+
+    <div class="service">
+      <h3>💎 Gói Premium – 300K+</h3>
+      <p>Bot full chức năng (game, quản lý, AI, hệ thống verify, dashboard...)</p>
+    </div>
+
+    <h2>Nitro và update sever</h2>
+    <div class="service">
+      <h3>Custom server</h3>
+      <p>Set up room, kênh, role, ảnh đại diện</p>
+    </div>
+
+    <div class="service">
+      <h3>Nâng cấp sever</h3>
+      <p>Boost sever 1 tháng/ 3 tháng/ 1 năm</p>
+    </div>
+
+    <div class="service">
+      <h3>Nitro cá nhân, Nametag, Viền, các trang trí khác  </h3>
+      <p>Vĩnh viễn/ Giá siêu hạt rẻ</p>
+    </div>
+
+    <h2>Dịch vụ khác</h2>
+    <div class="service">
+      <h3>Youtube premium</h3>
+      <p>GÓI NÂNG CHÍNH CHỦ</p>
+      <p>GÓI Family</p>
+    </div>
+
+    <div class="service">
+      <h3>Spotify premium</h3>
+      <p>GÓI NÂNG CHÍNH CHỦ</p>
+      <p>GÓI Family</p>
+    </div>
+
+    <div class="service">
+      <h3>Netflix premium</h3>
+      <p>Private</p>
+      <p>Extra</p>
+    </div>
+
+    <h2>📬 Gửi Yêu Cầu Thuê</h2>
+    <form onsubmit="submitForm(); return false;">
+      <div class="form-group">
+        <label for="name">Tên của bạn:</label>
+        <input type="text" id="name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="contact">Thông tin liên hệ (Discord/Tel/Zalo...):</label>
+        <input type="text" id="contact" required />
+      </div>
+
+      <div class="form-group">
+        <label for="package">Chọn gói dịch vụ:</label>
+        <select id="package" required>
+          <option value="Cơ bản">Gói Cơ bản – 50K</option>
+          <option value="Nâng cao">Gói Nâng cao – 150K</option>
+          <option value="Premium">Gói Premium – 300K+</option>
+          <option value="Dịch vụ khác">Dịch vụ khác</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="note">Ghi chú thêm:</label>
+        <textarea id="note" rows="4"></textarea>
+      </div>
+
+      <button type="submit">Gửi Yêu Cầu</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 • Dịch vụ bot Discord • Liên hệ: thanhck302@gmail.com
+  </footer>
+
+<script>
+  function submitForm() {
+    const name = document.getElementById('name').value;
+    const contact = document.getElementById('contact').value;
+    const pkg = document.getElementById('package').value;
+    const note = document.getElementById('note').value;
+
+    const content = `📥 **YÊU CẦU THUÊ BOT**\n👤 **Tên**: ${name}\n📱 **Liên hệ**: ${contact}\n📦 **Gói dịch vụ**: ${pkg}\n📝 **Ghi chú**: ${note}`;
+
+    fetch("https://discord.com/api/webhooks/1391749380884664361/7_8_pR_pxoQaqCe-blfAoSkvqYE3JmLuRn6zNuya-iXdRJAf0vacc_Vt0w1XyTeAxF7k", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ content })
+    })
+    .then(response => {
+      if (response.ok) {
+        alert("✅ Đã gửi yêu cầu! Bạn sẽ sớm được liên hệ.");
+      } else {
+        alert("❌ Lỗi khi gửi. Hãy thử lại.");
+      }
+    })
+    .catch(() => {
+      alert("❌ Gửi thất bại do lỗi kết nối.");
+    });
+  }
+</script>
+
+</body>
+</html>

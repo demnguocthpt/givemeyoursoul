@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clock</title>
+  <meta name="description" content="Đếm ngược đến ngày thi THPT1 - Time to Focus ⏳📚">
+  <meta name="author" content="Đếm ngược đến ngày thi THPT">
+  <meta name="theme-color" content="#f26507">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Đếm ngược đến ngày thi THPT">
+  <meta property="og:description" content="Đếm ngược đến ngày thi THPT2 - Time to Focus ⏳📚">
+  <meta property="og:image" content="https://raw.githubusercontent.com/demnguocthpt/thpt/7e9465ce4776c56cc7dc314e8bcf45fc8f36b312/1111.jpg">
+  <meta property="og:url" content="x">
+  <meta property="og:type" content="website">
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpg" sizes="32x32" href="https://raw.githubusercontent.com/demnguocthpt/thpt/refs/heads/main/avt.png">
+  <link rel="manifest" href='data:application/json,{"name":"","short_name":"","icons":[{"src":"images/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"images/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}'>
+  <!-- Preconnect & Prefetch -->
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <!-- Preload -->
+  <link rel="preload" href="css/style.css" as="style">
+  <link rel="preload" href="css/themes.css" as="style">
+  <link rel="preload" href="css/clock.css" as="style">
+  <link rel="preload" href="technology.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="js/clock.js" as="script">
+  <link rel="preload" href="./media/4.mp4" as="video" type="video/mp4">
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/clock.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Scripts -->
+  <script src="js/background.js" defer></script>
+  <style>
+    .background-container video {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      object-fit: cover;
+      z-index: -2;
+    }
+  </style>
+</head>
+<body class="theme-default">
+<header class="header">
+  <a href="/" class="logo">Refresh</a>
+  <div class="header-controls">
+    <button id="bgChangeBtn" class="control-button" title="Đổi nền">
+      <i class="fas fa-image"></i>
+    </button>
+    <button class="fullscreen-btn control-button" title="Toàn màn hình">
+      <i class="fas fa-expand"></i>
+    </button>
+  </div>
+</header>
+  <!-- Background -->
+  <div class="background-container">
+    <video id="bgVideo" autoplay muted loop playsinline>
+      <source src="https://raw.githubusercontent.com/demnguocthpt/123/main/41.mp4" type="video/mp4">
+    </video>
+    <img id="bgImage" src="https://raw.githubusercontent.com/demnguocthpt/thpt/refs/heads/main/c.jpg" alt="Background Image" style="display: none;" />
+    <div class="video-overlay"></div>
+  </div>
+
+  <!-- Content -->
+<div class="container">
+  <div class="clock-wrapper">
+    <div class="clock-background"></div>
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,50 C300,150 900,-50 1200,50 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.03)"></path>
+    </svg>
+    <div id="clock">00:00:00</div>
+    <div id="date">--</div>
+  </div>
+</div>
+  <!-- Clock Script -->
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+      const vnTime = new Date(utc + 7 * 3600000);
+      document.getElementById('clock').textContent = vnTime.toLocaleTimeString('vi-VN', { hour12: false });
+    }
+    function updateDate() {
+      const now = new Date();
+      const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+      const day = days[now.getDay()];
+      const dateStr = `${day} - ${String(now.getDate()).padStart(2, '0')}. ${String(now.getMonth() + 1).padStart(2, '0')}. ${now.getFullYear()}`;
+      document.getElementById('date').textContent = dateStr;
+    }
+    setInterval(() => {
+      updateClock();
+      updateDate();
+    }, 1000);
+    updateClock();
+    updateDate();
+  </script>
+<script>
+const backgrounds = [
+  { type: "image", src: "https://raw.githubusercontent.com/demnguocthpt/thpt/refs/heads/main/c.jpg" }, // Thêm ảnh vào đây
+  /*{ type: "video", src: "./media/4.mp4" },*/
+  { type: "image", src: "https://raw.githubusercontent.com/demnguocthpt/thpt/refs/heads/main/a.jpg" },  // Thêm ảnh khác
+  { type: "video", src: "https://raw.githubusercontent.com/demnguocthpt/123/main/41.mp4" },
+];
+
+let currentIndex = 0;
+const videoEl = document.getElementById("bgVideo");
+const imageEl = document.getElementById("bgImage");
+
+function switchBackground() {
+  const bg = backgrounds[currentIndex];
+  
+  if (bg.type === "video") {
+    imageEl.style.display = "none";
+    videoEl.style.display = "block";
+    videoEl.querySelector("source").src = bg.src;
+    videoEl.load();
+    videoEl.play();
+  } else if (bg.type === "image") {
+    videoEl.pause();
+    videoEl.style.display = "none";
+    imageEl.src = bg.src;
+    imageEl.style.display = "block";
+  }
+  currentIndex = (currentIndex + 1) % backgrounds.length;
+}
+document.getElementById("bgChangeBtn").addEventListener("click", switchBackground);
+
+// Nút toàn màn hình
+document.querySelector(".fullscreen-btn").addEventListener("click", () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+});
+</script>
+
+
+</body>
+</html>
+

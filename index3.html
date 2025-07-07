@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hoàng Ngọc Thành</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #eee8e8;
+      color: #0a0a0a;
+    }
+
+    /* Giao diện nhập mật khẩu */
+    #password-container {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: linear-gradient(135deg, #f8f9fa, #e0e0e0);
+      text-align: center;
+    }
+    #password-container h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    #password-container p {
+      margin-bottom: 15px;
+      color: #444;
+    }
+    .lock-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      color: #0078d4;
+    }
+    input[type="password"] {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 250px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #0078d4;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #005fa3;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    /* Nội dung chính bị ẩn */
+    #content {
+      display: none;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgb(247, 241, 241);
+      border-bottom: 2px solid #000;
+    }
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 2rem auto;
+      gap: 0rem;
+      padding: 0 2rem;
+    }
+    .left {
+      width: 20%;
+    }
+    .main-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 8px;
+    }
+    h1 {
+      margin: 0.2rem 0;
+      font-size: 2rem;
+    }
+    .about, .badges {
+      padding: 4px 8px;
+      background: #f2f2f2;
+      font-size: 0.8rem;
+    }
+    .badge {
+      padding: 4px 10px;
+      background: #f2f2f2;
+      font-size: 0.8rem;
+    }
+    .household {
+      margin-top: 2rem;
+    }
+    .member {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .member img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+    .member .info {
+      flex: 1;
+    }
+    .primary {
+      background: #333;
+      color: white;
+      border: none;
+      padding: 4px 8px;
+      font-size: 0.7rem;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Màn hình nhập mật khẩu -->
+<div id="password-container">
+  <div class="lock-icon">🔒</div>
+  <h1>Protected Profile</h1>
+  <p>Vui lòng nhập mật khẩu để tiếp tục</p>
+  <input type="password" id="password" placeholder="Nhập mật khẩu..." />
+  <button onclick="checkPassword()">Xác nhận</button>
+  <div class="error" id="error-message"></div>
+</div>
+
+<!-- Nội dung chính -->
+<div id="content">
+  <header>
+    <div><strong>My Profile</strong></div>
+    <a href="https://www.facebook.com/aikutehontui/">Đăng nhập</a>
+  </header>
+  <div class="container">
+    <div class="left">
+      <img src="https://raw.githubusercontent.com/demnguocthpt/thpt/refs/heads/main/481218400_1971532793250375_6831520606998971500_n.jpg" class="main-photo" alt="main" />
+    </div>
+    <div class="right">
+      <h1>HOÀNG NGỌC THÀNH</h1>
+      <div class="about">
+        <p>BS.CKI Trường Đại học Y Hà Nội</p>
+        <p>Cử nhân Trường Đại học Y - Dược Thái Nguyên</p>
+        <p>Cử nhân Trường Đại học Khoa Học Thái Nguyên</p>
+        <p>Nghiên cứu sinh Trường Đại học Khoa Học Thái Nguyên</p>
+        <p>Từng công tác tại Bệnh viện TW Thái Nguyên</p>
+      </div>
+      <div class="about">
+        <p>______________________________________________________________________________________________________________________________________________________________</p>
+        <p>Ngày Sinh: 13/03</p>
+        <p>Quê quán: Phú Thọ</p>
+      </div>
+      <div class="badges">
+        <p>________________________________________________________________________________________________________________________________</p>
+        <div class="badge"> Chứng chỉ tiếng Anh B2</div>
+        <div class="badge"> Tham gia đề tài nghiên cứu khoa học</div>
+        <div class="badge"> Kinh nghiệm làm việc trong Lab</div>
+        <div class="badge"> Kinh nghiệm làm việc trong bệnh viện</div>
+        <div class="badge"> Tham gia phát triển phần mềm - design</div>
+        <div class="badge"> Bài báo nghiên cứu khoa học cấp quốc gia</div>
+      </div>
+            <div class="badges">
+        <p>________________________________________________________________________________________________________________________________</p>
+        <div class="badge"> Contact</div>
+        <div class="badge"> email:</div>
+        <div class="badge"> số điện thoại:</div>
+      </div>
+      <p>________________________________________________________________________________________________________________________________</p>
+      <div class="household">
+        <h3>Tham chiếu</h3>
+        <div class="member">
+          <img src="https://profile.tnus.edu.vn/uploads/avatar/1550291193.402_hungnp.jpg" alt="" />
+          <div class="info">
+            <strong>Nguyễn Phú Hùng</strong><br />
+            <small>PGS.TS Sinh học phân tử</small>
+          </div>
+          <button class="primary">Chính</button>
+        </div>
+        <div class="member">
+          <img src="https://cnsh.tnus.edu.vn/uploads/images/le%20huong.jpg" alt="" />
+          <div class="info">
+            <strong>Lê Thị Thanh Hương</strong><br />
+            <small>PGS.TS Công nghệ sinh học</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Script kiểm tra mật khẩu -->
+<script>
+  const correctPassword = "thanhnam2002@";
+
+  function checkPassword() {
+    const input = document.getElementById("password").value;
+    const error = document.getElementById("error-message");
+    if (input === correctPassword) {
+      document.getElementById("password-container").style.display = "none";
+      document.getElementById("content").style.display = "block";
+    } else {
+      error.textContent = "Sai mật khẩu, vui lòng thử lại.";
+    }
+  }
+</script>
+
+</body>
+</html>
